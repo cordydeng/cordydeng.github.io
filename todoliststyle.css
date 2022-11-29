@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+
+body{
+    font-family: 'Noto Sans TC',sans-serif;
+    background-color: hsl(277, 89%, 40%);
+    color: black;
+    background-repeat: no-repeat;
+}
+
+div{
+    color: white;
+}
+
+button{
+    color: gold;
+    background-color: black;
+}
+
+.inline{
+    color:hotpink;
+    display: flex;
+}
