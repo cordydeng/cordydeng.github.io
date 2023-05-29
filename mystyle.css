@@ -1,0 +1,41 @@
+body{
+    background-color: silver;
+}
+
+span{
+    color:red;
+    font-size: 30px;
+}
+
+#lottoe{
+    position: absolute;
+    left:550px;
+    background-color: gold;
+    text-align: center;
+}
+
+#EnterColumn{
+    position: absolute;
+    left:530px;
+    top:350px;
+    text-align: center;
+    background-color: blueviolet;
+    width:500px;
+    height:250px;
+}
+
+.Number{
+    margin:10px;
+    width:35px;
+    height:20px
+}
+
+#PrizeMessageDiv{
+    text-align: center;
+    color:white;
+    background-color: rgb(184, 115, 51);
+    position:absolute;
+    left:625px;
+    top:650px;
+    width:300px;
+}
