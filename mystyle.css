@@ -1,17 +1,17 @@
 body{
-    background-color: silver;
+    background-color: silver;/*3*/
 }
 
 span{
-    color:red;
-    font-size: 30px;
+    color:red;/*3*/
+    font-size: 30px;/*3*/
 }
 
 #lottoe{
-    position: absolute;
-    left:550px;
+    position: absolute;/*3*/
+    left:550px;/*3*/
     background-color: gold;
-    text-align: center;
+    text-align: center;/*3*/
 }
 
 #EnterColumn{

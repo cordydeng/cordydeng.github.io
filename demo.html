@@ -26,7 +26,7 @@
             Second Number&nbsp;<input id="Number2" class="Number" type="number"><br>
             Third Number&nbsp;&nbsp;&nbsp;&nbsp;<input id="Number3" class="Number" type="number"><br>
             <button onclick="CheckUserNumber()">開獎</button>
-            <button onclick="Reset()">RESET</button>
+            <button onclick="Reset()">RESET</button><!--4-->
         </div>
         <div id="lotterynumber">
             樂透號碼
@@ -59,7 +59,7 @@
             let UserInput1
             let UserInput2
             let UserInput3
-            function CheckUserNumber(){
+            function CheckUserNumber(){/*5*/
                 UserInput1=document.getElementById("Number1").value;;
                 UserInput2=document.getElementById("Number2").value;
                 UserInput3=document.getElementById("Number3").value;
@@ -71,7 +71,7 @@
                     alert("警告\n輸入的數字不能重複");
                     Reset();
                 }
-                else{
+                else{/*1*/
                     let num=number1+"\t"+number2+"\t"+number3+"\n"+UserInput1+"\t"+UserInput2+"\t"+UserInput3;
                     let count=0;
                     let message="銘謝惠顧"
@@ -84,7 +84,7 @@
                     if(UserInput3==number1||UserInput3==number2||UserInput3==number3){
                         count++;
                     }
-                    if(count==1){
+                    if(count==1){/*2*/
                         message="恭喜獲得參獎，獎金100元";
                     }
                     else if(count==2){
