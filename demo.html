@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LotteryGame</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="mystyle.css">
+    </head>
+    <body>
+        <div id="lottoe">
+            <h1>樂透遊戲規則說明</h1>
+            <p id="rule">
+                歡迎來到樂透遊戲<br>
+                請你輸入三個<span>介於1到10之間的不重複數字</span><br>
+                樂透機也會開出三個數字<br>
+                中獎規則如下:<br>
+                三個全中=>頭獎(10000元)<br>
+                兩個中=>貳獎(1000元)<br>
+                一個中=>參獎(100元)<br>
+                沒有中=>銘謝惠顧
+            </p>
+        </div>
+
+        <div id="EnterColumn">
+            <h2>樂透區</h2>
+            First Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="Number1" class="Number" type="number"><br>
+            Second Number&nbsp;<input id="Number2" class="Number" type="number"><br>
+            Third Number&nbsp;&nbsp;&nbsp;&nbsp;<input id="Number3" class="Number" type="number"><br>
+            <button onclick="CheckUserNumber()">開獎</button>
+            <button onclick="Reset()">RESET</button>
+        </div>
+        <div id="lotterynumber">
+            樂透號碼
+        </div>
+        <button onclick="CheckLotteryNumber()">給我名牌</button><!--此按鈕為洩漏樂透號碼，方便助教進行樂透比對
+                                                                    使用方法:在輸入樂透號碼前先按此按鈕就會跑出樂透號碼
+                                                                    如需再次使用須先按reset按鈕才能再次使用
+                                                                    請不要扣我分謝謝
+                                                                -->
+
+        <div id="PrizeMessageDiv">
+            <p id="PrizeMessage">
+                開獎公告
+            </p>
+        </div>
+        <script>
+
+            let number1 = Math.floor(Math.random()*10)+1;
+            let number2 = Math.floor(Math.random()*10)+1;
+            let number3 = Math.floor(Math.random()*10)+1;
+            function CheckLotteryNumber(){
+                while(number1===number2||number2==number3||number1==number3){
+                    number1 = Math.floor(Math.random()*10)+1;
+                    number2 = Math.floor(Math.random()*10)+1;
+                    number3 = Math.floor(Math.random()*10)+1;
+                }
+                document.getElementById("lotterynumber").innerHTML=number1+" "+number2+" "+number3;
+            }
+
+            let UserInput1
+            let UserInput2
+            let UserInput3
+            function CheckUserNumber(){
+                UserInput1=document.getElementById("Number1").value;;
+                UserInput2=document.getElementById("Number2").value;
+                UserInput3=document.getElementById("Number3").value;
+                if((UserInput1>10||UserInput1<1)||(UserInput2>10||UserInput2<1)||(UserInput3>10||UserInput3<1)){
+                    alert("警告\n數字需介於1~10");
+                    Reset();
+                }
+                else if(UserInput1===UserInput2||UserInput2===UserInput3||UserInput1===UserInput3){
+                    alert("警告\n輸入的數字不能重複");
+                    Reset();
+                }
+                else{
+                    let num=number1+"\t"+number2+"\t"+number3+"\n"+UserInput1+"\t"+UserInput2+"\t"+UserInput3;
+                    let count=0;
+                    let message="銘謝惠顧"
+                    if(UserInput1==number1||UserInput1==number2||UserInput1==number3){
+                        count++;
+                    }
+                    if(UserInput2==number1||UserInput2==number2||UserInput2==number3){
+                        count++;
+                    }
+                    if(UserInput3==number1||UserInput3==number2||UserInput3==number3){
+                        count++;
+                    }
+                    if(count==1){
+                        message="恭喜獲得參獎，獎金100元";
+                    }
+                    else if(count==2){
+                        message="恭喜獲得貳獎，獎金1000元";
+                    }
+                    else if(count==3){
+                        message="恭喜獲得頭獎，獎金10000元";
+                    }
+                    document.getElementById("PrizeMessage").innerHTML=message;
+                }
+            }
+
+            function Reset(){
+                document.getElementById("Number1").value="";
+                document.getElementById("Number2").value="";
+                document.getElementById("Number3").value="";
+                document.getElementById("lotterynumber").innerHTML="樂透號碼";
+                document.getElementById("PrizeMessage").innerHTML="開講公告";
+                number1 = Math.floor(Math.random()*10)+1;
+                number2 = Math.floor(Math.random()*10)+1;
+                number3 = Math.floor(Math.random()*10)+1;
+            }
+        </script>
+    </body>
+</html>
